@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Duotify.Membership.Web/Duotify.Membership.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Duotify.Membership.Web.IntegrationTests/Duotify.Membership.Web.IntegrationTests.csproj" />
+    <Project Path="tests/Duotify.Membership.Web.UnitTests/Duotify.Membership.Web.UnitTests.csproj" />
+    <Project Path="tests/Duotify.Membership.Web.WebTests/Duotify.Membership.Web.WebTests.csproj" />
+  </Folder>
+</Solution>

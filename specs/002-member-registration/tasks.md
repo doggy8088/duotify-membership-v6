@@ -11,10 +11,10 @@
 
 **Purpose**: 建立 .NET 8 MVC 專案骨架、測試專案與前端建置基礎。
 
-- [ ] T001 建立解決方案與主 MVC 專案骨架於 Duotify.Membership.sln 和 src/Duotify.Membership.Web/Duotify.Membership.Web.csproj
-- [ ] T002 建立測試專案骨架於 tests/Duotify.Membership.Web.UnitTests/Duotify.Membership.Web.UnitTests.csproj、tests/Duotify.Membership.Web.IntegrationTests/Duotify.Membership.Web.IntegrationTests.csproj、tests/Duotify.Membership.Web.WebTests/Duotify.Membership.Web.WebTests.csproj
-- [ ] T003 [P] 初始化 Tailwind CSS v4 CLI 建置於 src/Duotify.Membership.Web/package.json 和 src/Duotify.Membership.Web/Styles/app.css
-- [ ] T004 [P] 設定共用建置與測試屬性於 Directory.Build.props 和 .gitignore
+- [X] T001 建立解決方案與主 MVC 專案骨架於 Duotify.Membership.sln 和 src/Duotify.Membership.Web/Duotify.Membership.Web.csproj
+- [X] T002 建立測試專案骨架於 tests/Duotify.Membership.Web.UnitTests/Duotify.Membership.Web.UnitTests.csproj、tests/Duotify.Membership.Web.IntegrationTests/Duotify.Membership.Web.IntegrationTests.csproj、tests/Duotify.Membership.Web.WebTests/Duotify.Membership.Web.WebTests.csproj
+- [X] T003 [P] 初始化 Tailwind CSS v4 CLI 建置於 src/Duotify.Membership.Web/package.json 和 src/Duotify.Membership.Web/Styles/app.css
+- [X] T004 [P] 設定共用建置與測試屬性於 Directory.Build.props 和 .gitignore
 
 ---
 
@@ -24,14 +24,14 @@
 
 **⚠️ CRITICAL**: 完成這一階段前，不應開始任何使用者故事實作。
 
-- [ ] T005 建立 SQL Server schema 與索引腳本於 src/Duotify.Membership.Web/Infrastructure/Data/Sql/Schema/001_member_registration.sql
-- [ ] T006 [P] 定義核心實體於 src/Duotify.Membership.Web/Domain/Entities/Member.cs、src/Duotify.Membership.Web/Domain/Entities/EmailVerificationChallenge.cs、src/Duotify.Membership.Web/Domain/Entities/SecurityAuditLog.cs
-- [ ] T007 [P] 定義驗證與權限列舉/值物件於 src/Duotify.Membership.Web/Domain/ValueObjects/EmailVerificationStatus.cs、src/Duotify.Membership.Web/Domain/ValueObjects/CapabilityStatus.cs、src/Duotify.Membership.Web/Domain/ValueObjects/ChallengeStatus.cs
-- [ ] T008 [P] 建立資料存取介面與連線工廠於 src/Duotify.Membership.Web/Application/Interfaces/IMemberRepository.cs、src/Duotify.Membership.Web/Application/Interfaces/IChallengeRepository.cs、src/Duotify.Membership.Web/Application/Interfaces/ISecurityAuditLogRepository.cs、src/Duotify.Membership.Web/Infrastructure/Data/SqlConnectionFactory.cs
-- [ ] T009 實作 SQL Server repositories 與交易協調於 src/Duotify.Membership.Web/Infrastructure/Repositories/MemberRepository.cs、src/Duotify.Membership.Web/Infrastructure/Repositories/ChallengeRepository.cs、src/Duotify.Membership.Web/Infrastructure/Repositories/SecurityAuditLogRepository.cs
-- [ ] T010 [P] 建立安全基礎元件於 src/Duotify.Membership.Web/Infrastructure/Security/PasswordHasherAdapter.cs、src/Duotify.Membership.Web/Infrastructure/Security/VerificationCodeProtector.cs、src/Duotify.Membership.Web/Infrastructure/Security/RateLimitPolicies.cs
-- [ ] T011 [P] 建立組態與寄信選項於 src/Duotify.Membership.Web/Application/Interfaces/IEmailSender.cs、src/Duotify.Membership.Web/Infrastructure/Email/SmtpEmailSender.cs、src/Duotify.Membership.Web/appsettings.json、src/Duotify.Membership.Web/appsettings.Development.json
-- [ ] T012 建立共用 MVC 外殼、DI 與 light transactional track 樣式於 src/Duotify.Membership.Web/Program.cs、src/Duotify.Membership.Web/Views/Shared/_Layout.cshtml、src/Duotify.Membership.Web/wwwroot/css/app.css
+- [X] T005 建立 SQL Server schema 與索引腳本於 src/Duotify.Membership.Web/Infrastructure/Data/Sql/Schema/001_member_registration.sql
+- [X] T006 [P] 定義核心實體於 src/Duotify.Membership.Web/Domain/Entities/Member.cs、src/Duotify.Membership.Web/Domain/Entities/EmailVerificationChallenge.cs、src/Duotify.Membership.Web/Domain/Entities/SecurityAuditLog.cs
+- [X] T007 [P] 定義驗證與權限列舉/值物件於 src/Duotify.Membership.Web/Domain/ValueObjects/EmailVerificationStatus.cs、src/Duotify.Membership.Web/Domain/ValueObjects/CapabilityStatus.cs、src/Duotify.Membership.Web/Domain/ValueObjects/ChallengeStatus.cs
+- [X] T008 [P] 建立資料存取介面與連線工廠於 src/Duotify.Membership.Web/Application/Interfaces/IMemberRepository.cs、src/Duotify.Membership.Web/Application/Interfaces/IChallengeRepository.cs、src/Duotify.Membership.Web/Application/Interfaces/ISecurityAuditLogRepository.cs、src/Duotify.Membership.Web/Infrastructure/Data/SqlConnectionFactory.cs
+- [X] T009 實作 SQL Server repositories 與交易協調於 src/Duotify.Membership.Web/Infrastructure/Repositories/MemberRepository.cs、src/Duotify.Membership.Web/Infrastructure/Repositories/ChallengeRepository.cs、src/Duotify.Membership.Web/Infrastructure/Repositories/SecurityAuditLogRepository.cs
+- [X] T010 [P] 建立安全基礎元件於 src/Duotify.Membership.Web/Infrastructure/Security/PasswordHasherAdapter.cs、src/Duotify.Membership.Web/Infrastructure/Security/VerificationCodeProtector.cs、src/Duotify.Membership.Web/Infrastructure/Security/RateLimitPolicies.cs
+- [X] T011 [P] 建立組態與寄信選項於 src/Duotify.Membership.Web/Application/Interfaces/IEmailSender.cs、src/Duotify.Membership.Web/Infrastructure/Email/SmtpEmailSender.cs、src/Duotify.Membership.Web/appsettings.json、src/Duotify.Membership.Web/appsettings.Development.json
+- [X] T012 建立共用 MVC 外殼、DI 與 light transactional track 樣式於 src/Duotify.Membership.Web/Program.cs、src/Duotify.Membership.Web/Views/Shared/_Layout.cshtml、src/Duotify.Membership.Web/wwwroot/css/app.css
 
 **Checkpoint**: Foundation ready - user story implementation can now begin.
 
@@ -45,20 +45,20 @@
 
 ### Tests for User Story 1
 
-- [ ] T013 [P] [US1] 新增註冊驗證與重複資料規則單元測試於 tests/Duotify.Membership.Web.UnitTests/Application/RegisterMemberServiceTests.cs
+- [X] T013 [P] [US1] 新增註冊驗證與重複資料規則單元測試於 tests/Duotify.Membership.Web.UnitTests/Application/RegisterMemberServiceTests.cs
 - [ ] T014 [P] [US1] 新增會員唯一性與註冊交易整合測試於 tests/Duotify.Membership.Web.IntegrationTests/Data/RegistrationPersistenceTests.cs
-- [ ] T015 [P] [US1] 新增 GET/POST `/register` 路由契約測試於 tests/Duotify.Membership.Web.WebTests/Registration/RegisterRouteContractTests.cs
+- [X] T015 [P] [US1] 新增 GET/POST `/register` 路由契約測試於 tests/Duotify.Membership.Web.WebTests/Registration/RegisterRouteContractTests.cs
 - [ ] T016 [P] [US1] 新增註冊請求延遲預算測試於 tests/Duotify.Membership.Web.IntegrationTests/Performance/RegisterPerformanceTests.cs
 
 ### Implementation for User Story 1
 
-- [ ] T017 [P] [US1] 建立註冊 ViewModel 於 src/Duotify.Membership.Web/ViewModels/Registration/RegisterViewModel.cs 和 src/Duotify.Membership.Web/ViewModels/Registration/RegisterSubmittedViewModel.cs
-- [ ] T018 [US1] 實作註冊流程服務於 src/Duotify.Membership.Web/Application/Services/RegisterMemberService.cs
-- [ ] T019 [US1] 實作註冊 Controller action 於 src/Duotify.Membership.Web/Controllers/RegistrationController.cs
-- [ ] T020 [P] [US1] 建立註冊頁 Razor View 於 src/Duotify.Membership.Web/Views/Registration/Register.cshtml
-- [ ] T021 [P] [US1] 實作註冊頁前端互動與 transactional track 樣式於 src/Duotify.Membership.Web/wwwroot/js/register.js 和 src/Duotify.Membership.Web/wwwroot/css/app.css
-- [ ] T022 [US1] 串接驗證碼信件內容與註冊審計事件於 src/Duotify.Membership.Web/Infrastructure/Email/SmtpEmailSender.cs 和 src/Duotify.Membership.Web/Application/Services/RegisterMemberService.cs
-- [ ] T023 [US1] 補齊註冊頁 loading、成功、欄位錯誤、重複身分證字號與重複 E-Mail 狀態於 src/Duotify.Membership.Web/Views/Registration/Register.cshtml
+- [X] T017 [P] [US1] 建立註冊 ViewModel 於 src/Duotify.Membership.Web/ViewModels/Registration/RegisterViewModel.cs 和 src/Duotify.Membership.Web/ViewModels/Registration/RegisterSubmittedViewModel.cs
+- [X] T018 [US1] 實作註冊流程服務於 src/Duotify.Membership.Web/Application/Services/RegisterMemberService.cs
+- [X] T019 [US1] 實作註冊 Controller action 於 src/Duotify.Membership.Web/Controllers/RegistrationController.cs
+- [X] T020 [P] [US1] 建立註冊頁 Razor View 於 src/Duotify.Membership.Web/Views/Registration/Register.cshtml
+- [X] T021 [P] [US1] 實作註冊頁前端互動與 transactional track 樣式於 src/Duotify.Membership.Web/wwwroot/js/register.js 和 src/Duotify.Membership.Web/wwwroot/css/app.css
+- [X] T022 [US1] 串接驗證碼信件內容與註冊審計事件於 src/Duotify.Membership.Web/Infrastructure/Email/SmtpEmailSender.cs 和 src/Duotify.Membership.Web/Application/Services/RegisterMemberService.cs
+- [X] T023 [US1] 補齊註冊頁 loading、成功、欄位錯誤、重複身分證字號與重複 E-Mail 狀態於 src/Duotify.Membership.Web/Views/Registration/Register.cshtml
 
 **Checkpoint**: User Story 1 可獨立完成註冊與寄送首筆驗證碼，作為 MVP 驗證。
 
@@ -72,21 +72,21 @@
 
 ### Tests for User Story 2
 
-- [ ] T024 [P] [US2] 新增驗證碼生命周期與鎖定規則單元測試於 tests/Duotify.Membership.Web.UnitTests/Application/VerifyEmailCodeServiceTests.cs
+- [X] T024 [P] [US2] 新增驗證碼生命周期與鎖定規則單元測試於 tests/Duotify.Membership.Web.UnitTests/Application/VerifyEmailCodeServiceTests.cs
 - [ ] T025 [P] [US2] 新增 active challenge 失效與重寄整合測試於 tests/Duotify.Membership.Web.IntegrationTests/Data/VerificationChallengeRepositoryTests.cs
-- [ ] T026 [P] [US2] 新增 POST `/register/verify` 與 POST `/register/verify/resend` 路由契約測試於 tests/Duotify.Membership.Web.WebTests/Registration/VerifyRouteContractTests.cs
+- [X] T026 [P] [US2] 新增 POST `/register/verify` 與 POST `/register/verify/resend` 路由契約測試於 tests/Duotify.Membership.Web.WebTests/Registration/VerifyRouteContractTests.cs
 - [ ] T027 [P] [US2] 新增驗證與重寄延遲預算測試於 tests/Duotify.Membership.Web.IntegrationTests/Performance/VerificationPerformanceTests.cs
 
 ### Implementation for User Story 2
 
-- [ ] T028 [P] [US2] 建立驗證與重寄 ViewModel 於 src/Duotify.Membership.Web/ViewModels/Registration/VerifyEmailViewModel.cs 和 src/Duotify.Membership.Web/ViewModels/Registration/ResendVerificationViewModel.cs
-- [ ] T029 [US2] 實作驗證碼比對與狀態轉移服務於 src/Duotify.Membership.Web/Application/Services/VerifyEmailCodeService.cs
-- [ ] T030 [US2] 實作重新寄送與解除鎖定服務於 src/Duotify.Membership.Web/Application/Services/ResendEmailVerificationService.cs
-- [ ] T031 [US2] 擴充驗證/重寄 Controller action 於 src/Duotify.Membership.Web/Controllers/RegistrationController.cs
-- [ ] T032 [P] [US2] 建立驗證碼輸入頁於 src/Duotify.Membership.Web/Views/Registration/Verify.cshtml
-- [ ] T033 [P] [US2] 實作驗證頁六格輸入、倒數與重寄互動於 src/Duotify.Membership.Web/wwwroot/js/verify.js 和 src/Duotify.Membership.Web/wwwroot/css/app.css
-- [ ] T034 [US2] 串接驗證審計、鎖定解除與舊碼失效規則於 src/Duotify.Membership.Web/Application/Services/ResendEmailVerificationService.cs 和 src/Duotify.Membership.Web/Infrastructure/Repositories/SecurityAuditLogRepository.cs
-- [ ] T035 [US2] 補齊驗證頁等待輸入、錯誤碼、逾期、鎖定、重寄成功與驗證成功狀態於 src/Duotify.Membership.Web/Views/Registration/Verify.cshtml
+- [X] T028 [P] [US2] 建立驗證與重寄 ViewModel 於 src/Duotify.Membership.Web/ViewModels/Registration/VerifyEmailViewModel.cs 和 src/Duotify.Membership.Web/ViewModels/Registration/ResendVerificationViewModel.cs
+- [X] T029 [US2] 實作驗證碼比對與狀態轉移服務於 src/Duotify.Membership.Web/Application/Services/VerifyEmailCodeService.cs
+- [X] T030 [US2] 實作重新寄送與解除鎖定服務於 src/Duotify.Membership.Web/Application/Services/ResendEmailVerificationService.cs
+- [X] T031 [US2] 擴充驗證/重寄 Controller action 於 src/Duotify.Membership.Web/Controllers/RegistrationController.cs
+- [X] T032 [P] [US2] 建立驗證碼輸入頁於 src/Duotify.Membership.Web/Views/Registration/Verify.cshtml
+- [X] T033 [P] [US2] 實作驗證頁六格輸入、倒數與重寄互動於 src/Duotify.Membership.Web/wwwroot/js/verify.js 和 src/Duotify.Membership.Web/wwwroot/css/app.css
+- [X] T034 [US2] 串接驗證審計、鎖定解除與舊碼失效規則於 src/Duotify.Membership.Web/Application/Services/ResendEmailVerificationService.cs 和 src/Duotify.Membership.Web/Infrastructure/Repositories/SecurityAuditLogRepository.cs
+- [X] T035 [US2] 補齊驗證頁等待輸入、錯誤碼、逾期、鎖定、重寄成功與驗證成功狀態於 src/Duotify.Membership.Web/Views/Registration/Verify.cshtml
 
 **Checkpoint**: User Story 2 可獨立完成驗證成功、鎖定、重寄與舊碼失效規則。
 
@@ -100,19 +100,19 @@
 
 ### Tests for User Story 3
 
-- [ ] T036 [P] [US3] 新增會員能力狀態與限制規則單元測試於 tests/Duotify.Membership.Web.UnitTests/Application/RestrictedAccessServiceTests.cs
+- [X] T036 [P] [US3] 新增會員能力狀態與限制規則單元測試於 tests/Duotify.Membership.Web.UnitTests/Application/RestrictedAccessServiceTests.cs
 - [ ] T037 [P] [US3] 新增未驗證能力狀態整合測試於 tests/Duotify.Membership.Web.IntegrationTests/Data/MemberCapabilityStateTests.cs
-- [ ] T038 [P] [US3] 新增未驗證會員區與限制提示 Web 測試於 tests/Duotify.Membership.Web.WebTests/MemberPortal/RestrictedAccessTests.cs
+- [X] T038 [P] [US3] 新增未驗證會員區與限制提示 Web 測試於 tests/Duotify.Membership.Web.WebTests/MemberPortal/RestrictedAccessTests.cs
 - [ ] T039 [P] [US3] 新增已驗證與未驗證互動路徑延遲測試於 tests/Duotify.Membership.Web.IntegrationTests/Performance/RestrictedAccessPerformanceTests.cs
 
 ### Implementation for User Story 3
 
-- [ ] T040 [US3] 實作目前會員能力解析服務於 src/Duotify.Membership.Web/Application/Interfaces/ICurrentMemberAccessor.cs 和 src/Duotify.Membership.Web/Application/Services/RestrictedAccessService.cs
-- [ ] T041 [US3] 實作會員區控制器與基本資料頁於 src/Duotify.Membership.Web/Controllers/MemberPortalController.cs 和 src/Duotify.Membership.Web/Views/MemberPortal/Profile.cshtml
-- [ ] T042 [US3] 實作 verified-only 動作過濾器於 src/Duotify.Membership.Web/Infrastructure/Security/RequireVerifiedMemberFilter.cs 和 src/Duotify.Membership.Web/Program.cs
-- [ ] T043 [P] [US3] 建立未驗證限制提示 partial 於 src/Duotify.Membership.Web/Views/Shared/_VerificationRestrictionBanner.cshtml
-- [ ] T044 [US3] 套用會員區互動限制與審計事件於 src/Duotify.Membership.Web/Controllers/MemberPortalController.cs 和 src/Duotify.Membership.Web/Infrastructure/Repositories/SecurityAuditLogRepository.cs
-- [ ] T045 [US3] 補齊未驗證僅可查看基本資料、受限操作提示與驗證後恢復使用狀態於 src/Duotify.Membership.Web/Views/MemberPortal/Profile.cshtml 和 src/Duotify.Membership.Web/Views/Shared/_Layout.cshtml
+- [X] T040 [US3] 實作目前會員能力解析服務於 src/Duotify.Membership.Web/Application/Interfaces/ICurrentMemberAccessor.cs 和 src/Duotify.Membership.Web/Application/Services/RestrictedAccessService.cs
+- [X] T041 [US3] 實作會員區控制器與基本資料頁於 src/Duotify.Membership.Web/Controllers/MemberPortalController.cs 和 src/Duotify.Membership.Web/Views/MemberPortal/Profile.cshtml
+- [X] T042 [US3] 實作 verified-only 動作過濾器於 src/Duotify.Membership.Web/Infrastructure/Security/RequireVerifiedMemberFilter.cs 和 src/Duotify.Membership.Web/Program.cs
+- [X] T043 [P] [US3] 建立未驗證限制提示 partial 於 src/Duotify.Membership.Web/Views/Shared/_VerificationRestrictionBanner.cshtml
+- [X] T044 [US3] 套用會員區互動限制與審計事件於 src/Duotify.Membership.Web/Controllers/MemberPortalController.cs 和 src/Duotify.Membership.Web/Infrastructure/Repositories/SecurityAuditLogRepository.cs
+- [X] T045 [US3] 補齊未驗證僅可查看基本資料、受限操作提示與驗證後恢復使用狀態於 src/Duotify.Membership.Web/Views/MemberPortal/Profile.cshtml 和 src/Duotify.Membership.Web/Views/Shared/_Layout.cshtml
 
 **Checkpoint**: 所有 user stories 都可獨立驗證，且未驗證限制規則完整落地。
 
@@ -122,10 +122,10 @@
 
 **Purpose**: 完成跨故事文件、安全硬化與最終驗證。
 
-- [ ] T046 [P] 更新實作與操作文件於 specs/002-member-registration/quickstart.md 和 README.md
-- [ ] T047 強化安全標頭、Cookie 與錯誤處理細節於 src/Duotify.Membership.Web/Program.cs 和 src/Duotify.Membership.Web/Infrastructure/Security/SecurityHeadersConfiguration.cs
-- [ ] T048 [P] 補齊跨故事回歸測試於 tests/Duotify.Membership.Web.WebTests/Regression/MemberRegistrationRegressionTests.cs
-- [ ] T049 執行 quickstart 驗證與記錄驗收結果於 specs/002-member-registration/quickstart.md
+- [X] T046 [P] 更新實作與操作文件於 specs/002-member-registration/quickstart.md 和 README.md
+- [X] T047 強化安全標頭、Cookie 與錯誤處理細節於 src/Duotify.Membership.Web/Program.cs 和 src/Duotify.Membership.Web/Infrastructure/Security/SecurityHeadersConfiguration.cs
+- [X] T048 [P] 補齊跨故事回歸測試於 tests/Duotify.Membership.Web.WebTests/Regression/MemberRegistrationRegressionTests.cs
+- [X] T049 執行 quickstart 驗證與記錄驗收結果於 specs/002-member-registration/quickstart.md
 
 ---
 

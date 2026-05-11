@@ -9,6 +9,7 @@
 | Field | Type | Required | Rules |
 | --- | --- | --- | --- |
 | MemberId | GUID | Yes | 主鍵 |
+| RegistrationReference | string | Yes | 唯一；供驗證/重寄流程識別該次註冊流程 |
 | NationalId | string | Yes | 唯一；格式依現行會員制度規則驗證 |
 | FullName | string | Yes | 非空；長度依 UI/資料庫上限限制 |
 | Email | string | Yes | 唯一；需符合 E-Mail 格式 |
@@ -23,6 +24,7 @@
 
 - `NationalId` 不可重複。
 - `Email` 不可重複。
+- `RegistrationReference` 不可重複。
 - 密碼需符合 8 到 20 碼，且同時包含大寫英文、小寫英文與數字。
 - `CapabilityStatus` 與 `EmailVerificationStatus` 必須同步：`Pending` 對應 `Restricted`，`Verified` 對應 `FullAccess`。
 
@@ -114,6 +116,7 @@
 
 - Unique index on `Members.NationalId`
 - Unique index on `Members.Email`
+- Unique index on `Members.RegistrationReference`
 - Filtered unique index on current challenge set，確保每位會員只有一筆有效中的 challenge
 - Foreign key from `EmailVerificationChallenges.MemberId` to `Members.MemberId`
 - Foreign key from `SecurityAuditLogs.MemberId` to `Members.MemberId`

@@ -1,0 +1,55 @@
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "建立帳號";
+}
+
+<section class="mx-auto max-w-3xl">
+    <div class="rounded-[12px] border border-hairline-light bg-canvas-light p-8 shadow-paper">
+        <div class="mb-8 space-y-3">
+            <span class="inline-flex rounded-pill bg-aloe px-4 py-2 text-xs font-semibold uppercase tracking-[0.72px] text-ink">Member Registration</span>
+            <h1 class="text-4xl font-light tracking-[0.4px] text-ink">建立你的會員帳號</h1>
+            <p class="max-w-2xl text-base leading-7 text-shade-60">輸入身分資料、E-Mail 與密碼後，我們會寄出一組 6 位數驗證碼。註冊完成後不會自動登入。</p>
+        </div>
+
+        <form asp-action="Register" method="post" class="space-y-6" novalidate>
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="rounded-[8px] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"></div>
+
+            <div class="grid gap-6 md:grid-cols-2">
+                <div class="space-y-2">
+                    <label asp-for="NationalId" class="text-sm font-semibold text-ink"></label>
+                    <input asp-for="NationalId" class="w-full rounded-[8px] border border-hairline-light px-4 py-3 text-base outline-none transition focus:border-ink" autocomplete="off" />
+                    <span asp-validation-for="NationalId" class="text-sm text-red-600"></span>
+                </div>
+                <div class="space-y-2">
+                    <label asp-for="FullName" class="text-sm font-semibold text-ink"></label>
+                    <input asp-for="FullName" class="w-full rounded-[8px] border border-hairline-light px-4 py-3 text-base outline-none transition focus:border-ink" autocomplete="name" />
+                    <span asp-validation-for="FullName" class="text-sm text-red-600"></span>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <label asp-for="Email" class="text-sm font-semibold text-ink"></label>
+                <input asp-for="Email" class="w-full rounded-[8px] border border-hairline-light px-4 py-3 text-base outline-none transition focus:border-ink" autocomplete="email" />
+                <span asp-validation-for="Email" class="text-sm text-red-600"></span>
+            </div>
+
+            <div class="space-y-2">
+                <label asp-for="Password" class="text-sm font-semibold text-ink"></label>
+                <input asp-for="Password" class="w-full rounded-[8px] border border-hairline-light px-4 py-3 text-base outline-none transition focus:border-ink" autocomplete="new-password" />
+                <p class="text-sm text-shade-50">密碼需為 8 到 20 碼，並同時包含英文大小寫與數字。</p>
+                <span asp-validation-for="Password" class="text-sm text-red-600"></span>
+            </div>
+
+            <div class="flex flex-col gap-4 border-t border-hairline-light pt-6 sm:flex-row sm:items-center sm:justify-between">
+                <p class="text-sm text-shade-60">送出後流程將進入下一步，無法返回編輯已送出的資料。</p>
+                <button type="submit" class="inline-flex items-center justify-center rounded-pill bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-shade-70">送出並寄送驗證碼</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/register.js" asp-append-version="true"></script>
+}

@@ -43,15 +43,16 @@
 
 ## 6. 驗證功能
 
-1. 執行單元測試：密碼規則、驗證碼狀態轉移、鎖定與重寄規則。
-2. 執行 SQL Server 整合測試：唯一索引、單一 active challenge、交易一致性。
-3. 執行 Web integration tests：註冊頁、驗證頁、Anti-forgery、轉導與錯誤提示。
+1. 執行 `dotnet build Duotify.Membership.slnx` 確認方案可編譯。
+2. 執行 `DOTNET_ROLL_FORWARD=Major dotnet test Duotify.Membership.slnx` 驗證單元測試、整合測試與 Web tests。
+3. 執行 `npm run build:css` 產出 `wwwroot/css/app.css`。
 4. 手動檢查 UI 狀態：載入、欄位錯誤、重複註冊、逾期碼、鎖定、重寄、驗證成功、未驗證受限提示。
 
 ## 7. 驗收清單
 
 - 註冊成功後不會自動登入。
 - 身分證字號與 E-Mail 均不可重複。
+- 每筆註冊流程皆有唯一 `registrationReference` 供驗證與重寄流程使用。
 - 驗證碼只有最新一組有效，且 5 分鐘過期。
 - 同一帳號驗證碼錯誤 3 次後鎖定，直到重新寄送新碼。
 - 未驗證會員登入後僅可查看基本資料。

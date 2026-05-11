@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Duotify Membership</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/app.css" asp-append-version="true" />
+</head>
+<body class="min-h-screen bg-canvas-cream text-ink">
+    <header class="border-b border-hairline-light bg-canvas-light/95 backdrop-blur">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+            <a class="text-lg font-semibold tracking-[0.3px]" asp-controller="Registration" asp-action="Register">Duotify Membership</a>
+            <nav class="flex items-center gap-3 text-sm font-medium">
+                <a class="rounded-pill border border-ink px-4 py-2 transition hover:bg-ink hover:text-white" asp-controller="Registration" asp-action="Register">註冊</a>
+                @if (User.Identity?.IsAuthenticated ?? false)
+                {
+                    <a class="rounded-pill bg-ink px-4 py-2 text-white transition hover:bg-shade-70" asp-controller="MemberPortal" asp-action="Profile">會員區</a>
+                    <form asp-controller="Account" asp-action="Logout" method="post" class="inline">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="rounded-pill border border-ink px-4 py-2 transition hover:bg-ink hover:text-white">登出</button>
+                    </form>
+                }
+                else
+                {
+                    <a class="rounded-pill bg-ink px-4 py-2 text-white transition hover:bg-shade-70" asp-controller="Account" asp-action="Login">登入</a>
+                }
+            </nav>
+        </div>
+    </header>
+    <main class="mx-auto min-h-[calc(100vh-168px)] max-w-6xl px-6 py-12">
+        @RenderBody()
+    </main>
+    <footer class="border-t border-hairline-light bg-canvas-light">
+        <div class="mx-auto max-w-6xl px-6 py-6 text-sm text-shade-60">
+            <p>Duotify Membership 註冊與驗證流程示範。</p>
+        </div>
+    </footer>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

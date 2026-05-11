@@ -1,0 +1,61 @@
+@model VerifyEmailViewModel
+@{
+    ViewData["Title"] = "E-Mail 驗證";
+}
+
+<section class="mx-auto max-w-3xl">
+    <div class="rounded-[12px] border border-hairline-light bg-canvas-light p-8 shadow-paper">
+        <div class="mb-8 space-y-3">
+            <span class="inline-flex rounded-pill bg-pistachio px-4 py-2 text-xs font-semibold uppercase tracking-[0.72px] text-ink">Verification</span>
+            <h1 class="text-4xl font-light tracking-[0.4px] text-ink">輸入 6 位數驗證碼</h1>
+            <p class="max-w-2xl text-base leading-7 text-shade-60">我們已將驗證碼寄至 <strong>@Model.Email</strong>。驗證碼 5 分鐘內有效，完成後即可啟用完整功能。</p>
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(Model.StatusMessage))
+        {
+            <div class="mb-6 rounded-[8px] px-4 py-3 text-sm @(Model.VerificationSucceeded ? "border border-green-200 bg-green-50 text-green-700" : "border border-hairline-light bg-canvas-cream text-shade-70")">
+                @Model.StatusMessage
+            </div>
+        }
+
+        @if (Model.VerificationSucceeded)
+        {
+            <div class="space-y-6">
+                <a asp-controller="Account" asp-action="Login" class="inline-flex rounded-pill bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-shade-70">前往登入</a>
+            </div>
+        }
+        else
+        {
+            <form asp-action="Verify" method="post" class="space-y-6" novalidate>
+                @Html.AntiForgeryToken()
+                <input asp-for="RegistrationReference" type="hidden" />
+                <div asp-validation-summary="ModelOnly" class="rounded-[8px] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"></div>
+                <div class="space-y-3">
+                    <label asp-for="VerificationCode" class="text-sm font-semibold text-ink"></label>
+                    <input asp-for="VerificationCode" class="verification-code-input w-full rounded-[8px] border border-hairline-light px-4 py-3 text-center text-3xl tracking-[0.8em] outline-none transition focus:border-ink" autocomplete="one-time-code" inputmode="numeric" maxlength="6" />
+                    <span asp-validation-for="VerificationCode" class="text-sm text-red-600"></span>
+                </div>
+
+                <div class="flex flex-col gap-4 border-t border-hairline-light pt-6 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="text-sm text-shade-60">驗證碼輸入錯誤 3 次後，必須重新寄送新碼。</p>
+                    <button type="submit" class="inline-flex items-center justify-center rounded-pill bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-shade-70">完成驗證</button>
+                </div>
+            </form>
+
+            <form asp-action="Resend" method="post" class="mt-6 flex items-center justify-between rounded-[12px] border border-hairline-light bg-canvas-cream px-5 py-4">
+                @Html.AntiForgeryToken()
+                <input name="RegistrationReference" type="hidden" value="@Model.RegistrationReference" />
+                <div>
+                    <p class="text-sm font-semibold text-ink">沒有收到驗證信？</p>
+                    <p class="text-sm text-shade-60">重新寄送後，舊驗證碼會立即失效。</p>
+                </div>
+                <button type="submit" class="rounded-pill border border-ink px-5 py-2 text-sm font-semibold text-ink transition hover:bg-ink hover:text-white">重新寄送</button>
+            </form>
+        }
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/verify.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,34 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "登入";
+}
+
+<section class="mx-auto max-w-2xl">
+    <div class="rounded-[12px] border border-hairline-light bg-canvas-light p-8 shadow-paper">
+        <div class="mb-8 space-y-3">
+            <span class="inline-flex rounded-pill bg-aloe px-4 py-2 text-xs font-semibold uppercase tracking-[0.72px] text-ink">Sign In</span>
+            <h1 class="text-4xl font-light tracking-[0.4px] text-ink">登入你的帳號</h1>
+            <p class="text-base leading-7 text-shade-60">已註冊但尚未驗證的會員仍可登入，但只能查看基本資料與驗證狀態。</p>
+        </div>
+        <form asp-action="Login" method="post" class="space-y-6">
+            @Html.AntiForgeryToken()
+            <input asp-for="ReturnUrl" type="hidden" />
+            <div asp-validation-summary="ModelOnly" class="rounded-[8px] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"></div>
+            <div class="space-y-2">
+                <label asp-for="Email" class="text-sm font-semibold text-ink"></label>
+                <input asp-for="Email" class="w-full rounded-[8px] border border-hairline-light px-4 py-3 text-base outline-none transition focus:border-ink" autocomplete="email" />
+                <span asp-validation-for="Email" class="text-sm text-red-600"></span>
+            </div>
+            <div class="space-y-2">
+                <label asp-for="Password" class="text-sm font-semibold text-ink"></label>
+                <input asp-for="Password" class="w-full rounded-[8px] border border-hairline-light px-4 py-3 text-base outline-none transition focus:border-ink" autocomplete="current-password" />
+                <span asp-validation-for="Password" class="text-sm text-red-600"></span>
+            </div>
+            <button type="submit" class="inline-flex rounded-pill bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-shade-70">登入</button>
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

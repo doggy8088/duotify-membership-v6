@@ -1,0 +1,15 @@
+bin/
+obj/
+.vs/
+.DS_Store
+node_modules/
+dist/
+build/
+coverage/
+TestResults/
+*.user
+*.suo
+*.tmp
+*.swp
+appsettings.Local.json
+appsettings.*.local.json
