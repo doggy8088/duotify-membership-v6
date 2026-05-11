@@ -1,6 +1,6 @@
 # Duotify Membership
 
-此專案實作會員註冊、E-Mail 驗證、登入與未驗證會員受限使用流程，技術堆疊為 .NET 8 MVC、SQL Server、Tailwind CSS v4 與 Vanilla JS。
+此專案實作會員註冊、E-Mail 驗證、登入與未驗證會員受限使用流程，技術堆疊為 .NET 10 MVC、SQL Server、Tailwind CSS v4 與 Vanilla JS。
 
 ## 本機開發
 

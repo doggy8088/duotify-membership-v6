@@ -5,11 +5,11 @@
 
 ## Summary
 
-以 .NET 8 的 ASP.NET Core MVC 建立單向會員註冊與 E-Mail 驗證流程，採用薄 Controller、Application Service 集中流程規則、SQL Server 作為唯一真實來源，並以最少的 NuGet 套件完成高安全標準。此功能會實作身分證字號與 E-Mail 唯一性、6 位數驗證碼挑戰、重新寄送即失效舊碼、錯誤 3 次鎖定到重寄為止、未驗證帳號僅可查看基本資料，以及使用 Tailwind CSS v4 + Vanilla JS 建立符合 transactional track 的 MVC 介面：light/cream canvas、pill button、非紫色、以 aloe/pistachio 作為限定點綴。
+以 .NET 10 的 ASP.NET Core MVC 建立單向會員註冊與 E-Mail 驗證流程，採用薄 Controller、Application Service 集中流程規則、SQL Server 作為唯一真實來源，並以最少的 NuGet 套件完成高安全標準。此功能會實作身分證字號與 E-Mail 唯一性、6 位數驗證碼挑戰、重新寄送即失效舊碼、錯誤 3 次鎖定到重寄為止、未驗證帳號僅可查看基本資料，以及使用 Tailwind CSS v4 + Vanilla JS 建立符合 transactional track 的 MVC 介面：light/cream canvas、pill button、非紫色、以 aloe/pistachio 作為限定點綴。
 
 ## Technical Context
 
-**Language/Version**: C# 12 / .NET 8
+**Language/Version**: C# 14 / .NET 10
 **Primary Dependencies**: ASP.NET Core MVC shared framework、Microsoft.Data.SqlClient、內建 Antiforgery、內建 Rate Limiting、Tailwind CSS v4 CLI、Vanilla JS、開源字型 Inter Variable/Inter Display（取代任何商業字型套件）
 **Storage**: SQL Server 2022 或相容版本，無快取層
 **Testing**: xUnit、ASP.NET Core integration tests、SQL Server-backed integration suite、少量端對端流程驗證

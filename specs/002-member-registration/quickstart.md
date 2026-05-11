@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- .NET SDK 8
+- .NET SDK 10
 - SQL Server 2022 或相容版本
 - Node.js 20+（用於 Tailwind CSS v4 CLI）
 - 一個可用的 SMTP 測試或正式寄信環境
@@ -11,7 +11,7 @@
 
 1. 建立 ASP.NET Core MVC 專案作為主網站。
 2. 於 `src/Duotify.Membership.Web` 下建立 `Application`、`Infrastructure`、`ViewModels`、`Views/Registration` 與 `wwwroot` 子結構。
-3. 僅加入必要 NuGet 套件：SQL Server 存取與測試所需套件，其餘優先使用 .NET 8 內建功能。
+3. 僅加入必要 NuGet 套件：SQL Server 存取與測試所需套件，其餘優先使用 .NET 10 內建功能。
 
 ## 2. 設定基礎組態
 

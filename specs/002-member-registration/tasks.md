@@ -9,7 +9,7 @@
 
 ## Phase 1: Setup (Shared Infrastructure)
 
-**Purpose**: 建立 .NET 8 MVC 專案骨架、測試專案與前端建置基礎。
+**Purpose**: 建立 .NET 10 MVC 專案骨架、測試專案與前端建置基礎。
 
 - [X] T001 建立解決方案與主 MVC 專案骨架於 Duotify.Membership.sln 和 src/Duotify.Membership.Web/Duotify.Membership.Web.csproj
 - [X] T002 建立測試專案骨架於 tests/Duotify.Membership.Web.UnitTests/Duotify.Membership.Web.UnitTests.csproj、tests/Duotify.Membership.Web.IntegrationTests/Duotify.Membership.Web.IntegrationTests.csproj、tests/Duotify.Membership.Web.WebTests/Duotify.Membership.Web.WebTests.csproj
