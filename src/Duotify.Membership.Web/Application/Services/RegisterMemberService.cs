@@ -16,7 +16,7 @@ public sealed class RegisterMemberService(
     PasswordHasherAdapter passwordHasher,
     VerificationCodeProtector verificationCodeProtector)
 {
-    public async Task<ServiceResult<RegisterMemberResult>> RegisterAsync(string nationalId, string fullName, string email, string password, string? ipAddress, string? userAgent, CancellationToken cancellationToken)
+    public async Task<ServiceResult<RegisterMemberResult>> RegisterAsync(string nationalId, string fullName, string email, string password, Func<string, string> verificationLinkFactory, string? ipAddress, string? userAgent, CancellationToken cancellationToken)
     {
         if (!PasswordRules.IsValid(password))
         {
@@ -93,7 +93,13 @@ public sealed class RegisterMemberService(
             throw;
         }
 
-        await emailSender.SendVerificationCodeAsync(member.Email, member.FullName, verificationCode.Code, cancellationToken);
+        await emailSender.SendVerificationCodeAsync(
+            registrationReference,
+            member.Email,
+            member.FullName,
+            verificationCode.Code,
+            verificationLinkFactory(registrationReference),
+            cancellationToken);
 
         return ServiceResult<RegisterMemberResult>.Success(new RegisterMemberResult
         {

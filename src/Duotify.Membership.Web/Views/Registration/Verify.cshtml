@@ -18,6 +18,25 @@
             </div>
         }
 
+        @if (!string.IsNullOrWhiteSpace(Model.TestVerificationCode) && !string.IsNullOrWhiteSpace(Model.TestVerificationLink))
+        {
+            <aside class="mb-6 rounded-[12px] border border-ink bg-pistachio p-5 text-ink shadow-paper" aria-label="測試資料">
+                <div class="space-y-3">
+                    <span class="inline-flex rounded-pill bg-ink px-4 py-2 text-xs font-semibold uppercase tracking-[0.72px] text-white">測試資料</span>
+                    <h2 class="text-2xl font-medium tracking-[0.3px]">目前未實際寄出 E-Mail</h2>
+                    <p class="text-sm leading-6 text-shade-70">@Model.TestEmailNotice</p>
+                    <div class="rounded-[8px] border border-ink/15 bg-white/70 p-4">
+                        <p class="text-sm font-semibold">測試用驗證碼</p>
+                        <p class="mt-2 text-3xl tracking-[0.35em]">@Model.TestVerificationCode</p>
+                    </div>
+                    <div class="rounded-[8px] border border-ink/15 bg-white/70 p-4">
+                        <p class="text-sm font-semibold">原本 E-Mail 會帶的驗證頁連結</p>
+                        <a href="@Model.TestVerificationLink" class="mt-2 block break-all text-sm font-semibold underline decoration-ink/40 underline-offset-4">@Model.TestVerificationLink</a>
+                    </div>
+                </div>
+            </aside>
+        }
+
         @if (Model.VerificationSucceeded)
         {
             <div class="space-y-6">

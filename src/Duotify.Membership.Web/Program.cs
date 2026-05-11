@@ -32,6 +32,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<SqlConnectionFactory>();
 builder.Services.AddSingleton<PasswordHasherAdapter>();
 builder.Services.AddSingleton<VerificationCodeProtector>();
+builder.Services.AddSingleton<VerificationEmailPreviewStore>();
 builder.Services.AddSingleton<ICurrentMemberAccessor, CurrentMemberAccessor>();
 builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 builder.Services.AddScoped<IChallengeRepository, ChallengeRepository>();

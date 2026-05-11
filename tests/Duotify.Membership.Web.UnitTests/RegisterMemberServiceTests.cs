@@ -4,7 +4,6 @@ using Duotify.Membership.Web.Domain.Entities;
 using Duotify.Membership.Web.Infrastructure.Data;
 using Duotify.Membership.Web.Infrastructure.Security;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 
 namespace Duotify.Membership.Web.UnitTests;
 
@@ -15,7 +14,7 @@ public sealed class RegisterMemberServiceTests
     {
         var service = CreateService();
 
-        var result = await service.RegisterAsync("A123456789", "王小明", "member@example.com", "weakpass", null, null, CancellationToken.None);
+        var result = await service.RegisterAsync("A123456789", "王小明", "member@example.com", "weakpass", _ => "https://example.test/register/verify?registrationRef=ref-001", null, null, CancellationToken.None);
 
         Assert.False(result.Succeeded);
         Assert.Equal("invalid_password", result.ErrorCode);
@@ -30,7 +29,7 @@ public sealed class RegisterMemberServiceTests
         };
         var service = CreateService(memberRepository: memberRepository);
 
-        var result = await service.RegisterAsync("A123456789", "王小明", "member@example.com", "Password123", null, null, CancellationToken.None);
+        var result = await service.RegisterAsync("A123456789", "王小明", "member@example.com", "Password123", _ => "https://example.test/register/verify?registrationRef=ref-001", null, null, CancellationToken.None);
 
         Assert.False(result.Succeeded);
         Assert.Equal("duplicate_email", result.ErrorCode);
@@ -93,6 +92,6 @@ public sealed class RegisterMemberServiceTests
 
     private sealed class FakeEmailSender : IEmailSender
     {
-        public Task SendVerificationCodeAsync(string recipientEmail, string recipientName, string verificationCode, CancellationToken cancellationToken) => Task.CompletedTask;
+        public Task SendVerificationCodeAsync(string registrationReference, string recipientEmail, string recipientName, string verificationCode, string verificationLink, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 }

@@ -15,7 +15,7 @@ public sealed class ResendEmailVerificationService(
     SqlConnectionFactory connectionFactory,
     VerificationCodeProtector verificationCodeProtector)
 {
-    public async Task<ServiceResult> ResendAsync(string registrationReference, string? ipAddress, string? userAgent, CancellationToken cancellationToken)
+    public async Task<ServiceResult> ResendAsync(string registrationReference, Func<string, string> verificationLinkFactory, string? ipAddress, string? userAgent, CancellationToken cancellationToken)
     {
         var member = await memberRepository.GetByRegistrationReferenceAsync(registrationReference, cancellationToken);
         if (member is null)
@@ -75,7 +75,14 @@ public sealed class ResendEmailVerificationService(
             throw;
         }
 
-        await emailSender.SendVerificationCodeAsync(member.Email, member.FullName, verificationCode.Code, cancellationToken);
+        await emailSender.SendVerificationCodeAsync(
+            registrationReference,
+            member.Email,
+            member.FullName,
+            verificationCode.Code,
+            verificationLinkFactory(registrationReference),
+            cancellationToken);
+
         return ServiceResult.Success();
     }
 }

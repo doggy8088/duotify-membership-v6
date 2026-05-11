@@ -1,5 +1,6 @@
 using Duotify.Membership.Web.Application.Interfaces;
 using Duotify.Membership.Web.Application.Services;
+using Duotify.Membership.Web.Infrastructure.Email;
 using Duotify.Membership.Web.Infrastructure.Security;
 using Duotify.Membership.Web.ViewModels.Registration;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +12,8 @@ public sealed class RegistrationController(
     RegisterMemberService registerMemberService,
     VerifyEmailCodeService verifyEmailCodeService,
     ResendEmailVerificationService resendEmailVerificationService,
-    IMemberRepository memberRepository) : Controller
+    IMemberRepository memberRepository,
+    VerificationEmailPreviewStore previewStore) : Controller
 {
     [HttpGet("/")]
     public IActionResult Root() => RedirectToAction(nameof(Register));
@@ -46,6 +48,7 @@ public sealed class RegistrationController(
             viewModel.FullName,
             viewModel.Email,
             viewModel.Password,
+            BuildVerificationLink,
             HttpContext.Connection.RemoteIpAddress?.ToString(),
             Request.Headers.UserAgent.ToString(),
             cancellationToken);
@@ -78,7 +81,7 @@ public sealed class RegistrationController(
             RegistrationReference = registrationRef,
             Email = member.Email,
             StatusMessage = registered ? "註冊完成，驗證碼已寄出。請手動輸入驗證碼完成 E-Mail 驗證。" : message
-        });
+        }.ApplyPreview(previewStore.Get(registrationRef)));
     }
 
     [HttpPost("/register/verify")]
@@ -118,6 +121,7 @@ public sealed class RegistrationController(
     {
         var result = await resendEmailVerificationService.ResendAsync(
             viewModel.RegistrationReference,
+            BuildVerificationLink,
             HttpContext.Connection.RemoteIpAddress?.ToString(),
             Request.Headers.UserAgent.ToString(),
             cancellationToken);
@@ -130,6 +134,11 @@ public sealed class RegistrationController(
     {
         var member = await memberRepository.GetByRegistrationReferenceAsync(viewModel.RegistrationReference, cancellationToken);
         viewModel.Email = member?.Email ?? string.Empty;
+        viewModel.ApplyPreview(previewStore.Get(viewModel.RegistrationReference));
         return View(viewModel);
     }
+
+    private string BuildVerificationLink(string registrationReference)
+        => Url.Action(nameof(Verify), "Registration", new { registrationRef = registrationReference }, Request.Scheme)
+            ?? $"{Request.Scheme}://{Request.Host}/register/verify?registrationRef={Uri.EscapeDataString(registrationReference)}";
 }
