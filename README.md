@@ -26,7 +26,7 @@
 
 目前這個儲存庫主要由 Spec Kit 所需的設定、模板與輔助檔案組成：
 
-```text
+```plaintext
 .
 ├── .github/
 │   ├── copilot-instructions.md    # Copilot 額外指示
@@ -121,7 +121,7 @@
 
 若你是在支援 Spec Kit 的環境中操作，常見流程會像這樣：
 
-```text
+```plaintext
 /speckit.specify
 /speckit.plan
 /speckit.tasks
